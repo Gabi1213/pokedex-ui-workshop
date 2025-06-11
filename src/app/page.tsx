@@ -16,7 +16,8 @@ export default function Home() {
    const fetchData = async () => {
      const resp = await fetch('/api/pokemon');
      if (resp.ok) {
-       const pokemons: PokemonCard[] = (await resp.json()).items;
+      const pokemons = await resp.json();
+      //  const pokemons: PokemonCard[] = (await resp.json()).items;
        console.log(pokemons);
        setPokemons(pokemons);
      }
